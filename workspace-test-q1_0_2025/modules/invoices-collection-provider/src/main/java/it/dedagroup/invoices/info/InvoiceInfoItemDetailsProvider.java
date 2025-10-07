@@ -18,13 +18,13 @@ public class InvoiceInfoItemDetailsProvider
 
     @Override
     public InfoItemClassDetails getInfoItemClassDetails() {
-        return new InfoItemClassDetails("Invoice");
+        return new InfoItemClassDetails(Invoice.class.getName());
     }
 
     @Override
     public InfoItemDetails getInfoItemDetails(Invoice invoice) {
         InfoItemReference reference = new InfoItemReference(
-                "it.dedagroup.invoices.model.Invoice",
+                Invoice.class.getName(),
                 new ClassPKInfoItemIdentifier(invoice.getInvoiceId())
         );
 

@@ -5,24 +5,24 @@ import java.math.BigDecimal;
 public class Invoice {
 
     private final long invoiceId;
+    private final BigDecimal invoiceValue;
     private final long userId;
-    private final BigDecimal value;
 
-    public Invoice(long invoiceId, long userId, BigDecimal importo) {
+    public Invoice(long invoiceId, long userId, BigDecimal invoiceValue) {
         this.invoiceId = invoiceId;
+        this.invoiceValue = invoiceValue;
         this.userId = userId;
-        this.value = importo;
     }
 
     public long getInvoiceId() {
         return invoiceId;
     }
 
-    public long getUserId() {
-        return userId;
+    public BigDecimal getInvoiceValue() {
+        return invoiceValue;
     }
 
-    public BigDecimal getValue() {
-        return value;
+    public long getUserId() {
+        return userId;
     }
 }

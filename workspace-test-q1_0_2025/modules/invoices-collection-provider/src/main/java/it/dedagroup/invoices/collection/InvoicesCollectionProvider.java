@@ -3,16 +3,14 @@ package it.dedagroup.invoices.collection;
 import com.liferay.info.collection.provider.CollectionQuery;
 import com.liferay.info.collection.provider.InfoCollectionProvider;
 import com.liferay.info.pagination.InfoPage;
-import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
-import com.liferay.portal.kernel.theme.ThemeDisplay;
 import it.dedagroup.invoices.model.Invoice;
+import it.dedagroup.invoices.service.InvoiceRepository;
 import org.osgi.service.component.annotations.Component;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -29,6 +27,8 @@ import java.util.Locale;
 )
 public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoice> {
 
+    private static final Log _log = LogFactoryUtil.getLog(InvoicesCollectionProvider.class);
+
     @Override
     public InfoPage<Invoice> getCollectionInfoPage(CollectionQuery collectionQuery) {
 
@@ -38,25 +38,14 @@ public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoic
         }
 
         List<Invoice> invoices = new ArrayList<>();
+        try {
+            invoices = InvoiceRepository.findByUserId(userId);
 
-        String sql = "SELECT invoiceId, userId, invoiceValue FROM test_q1_0_2025_db.invoice WHERE userId = ? ORDER BY invoiceId DESC";
-
-        try (Connection con = DataAccess.getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setLong(1, userId);
-
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    invoices.add(new Invoice(
-                            rs.getLong("invoiceId"),
-                            rs.getLong("userId"),
-                            rs.getBigDecimal("invoiceValue")
-                    ));
-                }
+            if(_log.isDebugEnabled()) {
+                _log.debug("Loaded " + invoices.size() + " invoices for userId=" + userId);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            _log.error("Error loading invoices for userId=" + userId, e);
         }
 
         return InfoPage.of(invoices);
