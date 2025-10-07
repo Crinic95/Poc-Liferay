@@ -1,0 +1,43 @@
+mode: Mainline
+branches:
+  main:
+    regex: ^master$|^main$
+    mode: ContinuousDeployment
+    tag: 'prod'
+    source-branches: [ ]
+    increment: Minor
+    is-release-branch: true
+    prevent-increment-of-merged-branch-version: true
+  develop:
+    regex: ^develop(s)?[/-]
+    mode: ContinuousDelivery
+    tag: useBranchName
+    source-branches: [ 'develop' ]
+    increment: Minor
+    prevent-increment-of-merged-branch-version: false
+  feature:
+    regex: ^feature(s)?[/-]
+    mode: ContinuousDelivery
+    tag: useBranchName
+    source-branches: [ 'feature' ]
+    increment: Minor
+    prevent-increment-of-merged-branch-version: false
+  hotfix:
+    regex: ^hotfix(es)?[/-]
+    mode: ContinuousDelivery
+    tag: useBranchName
+    source-branches: [ 'main' ]
+    increment: Patch
+    prevent-increment-of-merged-branch-version: false
+  sprint:
+    regex: ^sprint$|^demo$
+    mode: ContinuousDeployment
+    source-branches: [ 'feature' ]
+    increment: None
+major-version-bump-message: "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\\([\\w\\s-]*\\))?(!:|:.*\\n\\n((.+\\n)+\\n)?BREAKING CHANGE:\\s.+)"
+minor-version-bump-message: "^(feat)(\\([\\w\\s-]*\\))?:"
+patch-version-bump-message: "^(build|chore|ci|docs|fix|perf|refactor|revert|style|test)(\\([\\w\\s-]*\\))?:"
+commit-message-incrementing: Enabled
+ignore:
+  sha: []
+merge-message-formats: {}
