@@ -20,6 +20,20 @@ public class InvoiceInfoFields {
             .labelInfoLocalizedValue(InfoLocalizedValue.singleValue("Invoice Value"))
             .build();
 
+    public static final InfoField<TextInfoFieldType> TYPE = InfoField.builder()
+            .infoFieldType(TextInfoFieldType.INSTANCE)
+            .namespace("invoice")
+            .name("type_")
+            .labelInfoLocalizedValue(InfoLocalizedValue.singleValue("Type"))
+            .build();
+
+    public static final InfoField<TextInfoFieldType> STATUS = InfoField.builder()
+            .infoFieldType(TextInfoFieldType.INSTANCE)
+            .namespace("invoice")
+            .name("status_")
+            .labelInfoLocalizedValue(InfoLocalizedValue.singleValue("Status"))
+            .build();
+
     public static final InfoField<TextInfoFieldType> USER_ID = InfoField.builder()
             .infoFieldType(TextInfoFieldType.INSTANCE)
             .namespace("invoice")

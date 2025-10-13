@@ -21,6 +21,8 @@ public class InvoiceInfoItemFieldValuesProvider
                 .infoFieldValue(new InfoFieldValue<>(INVOICE_ID, String.valueOf(invoice.getInvoiceId())))
                 .infoFieldValue(new InfoFieldValue<>(USER_ID, String.valueOf(invoice.getUserId())))
                 .infoFieldValue(new InfoFieldValue<>(INVOICE_VALUE, invoice.getInvoiceValue().toPlainString()))
+                .infoFieldValue(new InfoFieldValue<>(TYPE, invoice.getType()))
+                .infoFieldValue(new InfoFieldValue<>(STATUS, invoice.getStatus()))
                 .build();
     }
 }

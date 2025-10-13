@@ -1,0 +1,29 @@
+.invoice-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 8px 0;
+  background: #fff;
+  transition: box-shadow 0.2s ease;
+}
+
+.invoice-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.invoice-card__id {
+  font-weight: 700;
+  color: #1e40af;
+  margin-bottom: 0.25rem;
+}
+
+.invoice-card__value {
+  font-size: 1.1rem;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.invoice-card__user {
+  color: #6b7280;
+  font-size: 0.9rem;
+}

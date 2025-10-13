@@ -1,0 +1,22 @@
+.invoice-type-filter {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.invoice-type-filter__label {
+  font-weight: 600;
+}
+
+.invoice-type-filter__select {
+  min-width: 12rem;
+}
+
+.invoice-type-filter__clear {
+  background: transparent;
+  border: 1px solid var(--color-neutral-5, #ccc);
+  padding: .35rem .6rem;
+  border-radius: .25rem;
+  cursor: pointer;
+}

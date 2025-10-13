@@ -7,11 +7,19 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.Validator;
+import it.dedagroup.invoices.filter.InvoiceTypeFilter;
 import it.dedagroup.invoices.model.Invoice;
 import it.dedagroup.invoices.service.InvoiceRepository;
 import org.osgi.service.component.annotations.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 
@@ -37,18 +45,43 @@ public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoic
             userId = PermissionThreadLocal.getPermissionChecker().getUserId();
         }
 
-        List<Invoice> invoices = new ArrayList<>();
-        try {
-            invoices = InvoiceRepository.findByUserId(userId);
+        ServiceContext sc = ServiceContextThreadLocal.getServiceContext();
+        HttpServletRequest original = (sc != null) ? PortalUtil.getOriginalServletRequest(sc.getRequest()) : null;
 
-            if(_log.isDebugEnabled()) {
-                _log.debug("Loaded " + invoices.size() + " invoices for userId=" + userId);
-            }
-        } catch (Exception e) {
-            _log.error("Error loading invoices for userId=" + userId, e);
+        String type = null;
+        String status = null;
+
+        if (original != null) {
+            type   = ParamUtil.getString(original, "invoiceType");
+            status = ParamUtil.getString(original, "invoiceStatus");
         }
 
-        return InfoPage.of(invoices);
+        if (Validator.isNotNull(type)) {
+            if ("Pagate".equalsIgnoreCase(type)) type = "Pagata";
+            if ("Scadute".equalsIgnoreCase(type)) type = "Scaduta";
+        }
+        if (Validator.isNotNull(status)) {
+            System.out.println("status: " + status);
+            if ("Aperte".equalsIgnoreCase(status)) status = "Aperta";
+            if ("Chiuse".equalsIgnoreCase(status)) status = "Chiusa";
+        }
+
+        if (Validator.isNotNull(type) && !("Pagata".equals(type) || "Scaduta".equals(type))) {
+            type = null;
+        }
+        if (Validator.isNotNull(status) && !( "Aperta".equals(status) || "Chiusa".equals(status))) {
+            status = null;
+        }
+
+        List<Invoice> list;
+        try {
+            list = InvoiceRepository.findByUserTypeStatus(userId, type, status);
+        } catch (Exception e) {
+            _log.error("Error loading invoices", e);
+            list = Collections.emptyList();
+        }
+
+        return InfoPage.of(list);
     }
 
     @Override

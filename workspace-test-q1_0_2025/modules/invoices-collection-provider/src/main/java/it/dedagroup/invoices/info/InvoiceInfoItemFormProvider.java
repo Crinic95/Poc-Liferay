@@ -21,6 +21,8 @@ public class InvoiceInfoItemFormProvider implements InfoItemFormProvider<Invoice
             .infoFieldSetEntry(INVOICE_ID)
             .infoFieldSetEntry(USER_ID)
             .infoFieldSetEntry(INVOICE_VALUE)
+            .infoFieldSetEntry(TYPE)
+            .infoFieldSetEntry(STATUS)
             .build();
 
     @Override
