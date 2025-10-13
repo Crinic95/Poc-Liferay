@@ -2,6 +2,7 @@ package it.dedagroup.invoices.collection;
 
 import com.liferay.info.collection.provider.CollectionQuery;
 import com.liferay.info.collection.provider.InfoCollectionProvider;
+import com.liferay.info.filter.InfoFilterProvider;
 import com.liferay.info.pagination.InfoPage;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -12,16 +13,15 @@ import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
+import it.dedagroup.invoices.filter.InvoiceStatusFilter;
 import it.dedagroup.invoices.filter.InvoiceTypeFilter;
 import it.dedagroup.invoices.model.Invoice;
 import it.dedagroup.invoices.service.InvoiceRepository;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 /**
  * @author NCLCST95H
@@ -45,47 +45,60 @@ public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoic
             userId = PermissionThreadLocal.getPermissionChecker().getUserId();
         }
 
-        ServiceContext sc = ServiceContextThreadLocal.getServiceContext();
-        HttpServletRequest original = (sc != null) ? PortalUtil.getOriginalServletRequest(sc.getRequest()) : null;
+        ServiceContext serviceContext = ServiceContextThreadLocal.getServiceContext();
+        HttpServletRequest original = (serviceContext != null) ? PortalUtil.getOriginalServletRequest(serviceContext.getRequest()) : null;
 
         String type = null;
         String status = null;
 
         if (original != null) {
-            type   = ParamUtil.getString(original, "invoiceType");
-            status = ParamUtil.getString(original, "invoiceStatus");
+            Map<String, String[]> values = new HashMap<>();
+            String typeRaw = ParamUtil.getString(original, "invoiceType", null);
+            String statusRaw = ParamUtil.getString(original, "invoiceStatus", null);
+
+            if (Validator.isNotNull(typeRaw)) {
+                values.put("invoiceType",   new String[]{typeRaw});
+            }
+            if (Validator.isNotNull(statusRaw)) {
+                values.put("invoiceStatus", new String[]{statusRaw});
+            }
+
+            if (invoiceTypeFilterProvider != null) {
+                it.dedagroup.invoices.filter.InvoiceTypeFilter typeFilter =
+                        invoiceTypeFilterProvider.create(values);
+                if (typeFilter != null && Validator.isNotNull(typeFilter.getType())) {
+                    type = typeFilter.getType();
+                }
+            }
+            if (invoiceStatusFilterProvider != null) {
+                it.dedagroup.invoices.filter.InvoiceStatusFilter statusFilter =
+                        invoiceStatusFilterProvider.create(values);
+                if (statusFilter != null && Validator.isNotNull(statusFilter.getStatus())) {
+                    status = statusFilter.getStatus();
+                }
+            }
         }
 
-        if (Validator.isNotNull(type)) {
-            if ("Pagate".equalsIgnoreCase(type)) type = "Pagata";
-            if ("Scadute".equalsIgnoreCase(type)) type = "Scaduta";
-        }
-        if (Validator.isNotNull(status)) {
-            System.out.println("status: " + status);
-            if ("Aperte".equalsIgnoreCase(status)) status = "Aperta";
-            if ("Chiuse".equalsIgnoreCase(status)) status = "Chiusa";
-        }
-
-        if (Validator.isNotNull(type) && !("Pagata".equals(type) || "Scaduta".equals(type))) {
-            type = null;
-        }
-        if (Validator.isNotNull(status) && !( "Aperta".equals(status) || "Chiusa".equals(status))) {
-            status = null;
-        }
-
-        List<Invoice> list;
+        List<Invoice> invoices;
         try {
-            list = InvoiceRepository.findByUserTypeStatus(userId, type, status);
+            invoices = InvoiceRepository.findByUserTypeStatus(userId, type, status);
         } catch (Exception e) {
             _log.error("Error loading invoices", e);
-            list = Collections.emptyList();
+            invoices = java.util.Collections.emptyList();
         }
 
-        return InfoPage.of(list);
+        return InfoPage.of(invoices);
     }
 
     @Override
     public String getLabel(Locale locale) {
         return "Invoices (Collection Provider)";
     }
+
+    @Reference(target = "(&(item.class.name=it.dedagroup.invoices.model.Invoice)(key=invoiceStatus))")
+    private InfoFilterProvider<InvoiceStatusFilter> invoiceStatusFilterProvider;
+
+    @Reference(target = "(&(item.class.name=it.dedagroup.invoices.model.Invoice)(key=invoiceType))")
+    private InfoFilterProvider<InvoiceTypeFilter> invoiceTypeFilterProvider;
+
 }
