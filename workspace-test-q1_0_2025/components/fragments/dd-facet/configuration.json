@@ -1,0 +1,52 @@
+{
+  "fieldSets": [
+    {
+			"label": "Impostazioni filtro",
+      "fields": [
+        {
+          "name": "facetPreset",
+          "type": "select",
+          "label": "Quale facet usare",
+          "defaultValue": "status",
+          "typeOptions": {
+            "validValues": [
+              { "value": "status", "label": "Status (Aperta/Chiusa)" },
+              { "value": "type", "label": "Type (Pagata/Scaduta)" },
+              { "value": "custom", "label": "Custom" }
+            ]
+          }
+        },
+        {
+          "name": "label",
+          "type": "text",
+          "label": "Etichetta filtro (solo per Custom)",
+          "defaultValue": "Filtro"
+        },
+        {
+          "name": "paramName",
+          "type": "text",
+          "label": "Nome parametro URL (solo per Custom)",
+          "defaultValue": "facet"
+        },
+        {
+          "name": "allLabel",
+          "type": "text",
+          "label": "Etichetta voce 'Tutte/Tutti'",
+          "defaultValue": "Tutte"
+        },
+		{
+          "name": "optionsString",
+          "type": "text",
+          "label": "Opzioni Custom (label|value; label|value; ...)",
+          "defaultValue": ""
+        },
+        {
+          "name": "clearButton",
+          "type": "checkbox",
+          "label": "Mostra bottone 'Azzera filtro'",
+          "defaultValue": true
+        }
+      ]
+    }
+  ]
+}
