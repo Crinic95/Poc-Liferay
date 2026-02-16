@@ -2,10 +2,7 @@
     "private": true,
     "workspaces": {
         "packages": [
-            "client-extensions\\custom-style",
-            "client-extensions\\custom-style-supplier",
-            "client-extensions\\liferay-theme-italia",
-            "themes\\catalogs-theme"
+            "modules\\fragments-server-side"
         ]
     }
 }
