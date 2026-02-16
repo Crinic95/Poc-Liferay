@@ -1,0 +1,11 @@
+.slide-forniture .card{
+	margin-bottom: 0px;
+}
+@media (max-width: 1399px){
+.info-fornitura h2{
+	font-size:24px !important;
+	}
+	.mycarousel{
+		height: auto !important;
+	}
+}

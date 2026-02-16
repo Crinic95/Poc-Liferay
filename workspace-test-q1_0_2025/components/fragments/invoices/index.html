@@ -1,25 +1,62 @@
-<div class="invoice-card">
-  <h3 class="invoice-card__id"
+<article class="supply-card" data-status="">
+  <header class="supply-card__header">
+    <div class="supply-card__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="drop"><path d="M32 6c8.5 12.2 18 22.6 18 32.1C50 47.9 41 56 32 56S14 47.9 14 38.1C14 28.6 23.5 18.2 32 6z"/></svg>
+    </div>
+
+    <div class="supply-card__badge"
+         data-lfr-editable-id="badge"
+         data-lfr-editable-type="text"></div>
+  </header>
+
+  <h3 class="supply-card__title"
       data-lfr-editable-id="invoiceId"
       data-lfr-editable-type="text">
-      #00000
+    #00000
   </h3>
 
-  <p class="invoice-card__value"
-     data-lfr-editable-id="invoiceValue"
-     data-lfr-editable-type="text">
-     0.00 €
-  </p>
-
-  <p class="invoice-card__user"
+  <p class="supply-card__address"
      data-lfr-editable-id="userId"
      data-lfr-editable-type="text">
      user@example.com
   </p>
 
-  <p class="invoice-card__type"
-     data-lfr-editable-id="type"
-     data-lfr-editable-type="text">
-     type
-  </p>
-</div>
+  <hr class="supply-card__divider" />
+
+  <dl class="supply-card__meta">
+    <div class="meta__row">
+      <dt class="meta__label">Stato</dt>
+      <dd class="meta__value">
+        <span class="pill"
+              data-lfr-editable-id="invoiceStatus"
+              data-lfr-editable-type="text">ATTIVO</span>
+      </dd>
+    </div>
+
+    <div class="meta__row">
+      <dt class="meta__label">Valore</dt>
+      <dd class="meta__value"
+          data-lfr-editable-id="invoiceValue"
+          data-lfr-editable-type="text">
+        0,00 €
+      </dd>
+    </div>
+
+    <div class="meta__row">
+      <dt class="meta__label">Tipo</dt>
+      <dd class="meta__value"
+          data-lfr-editable-id="type"
+          data-lfr-editable-type="text">
+        type
+      </dd>
+    </div>
+  </dl>
+
+  <a class="supply-card__cta"
+     data-lfr-editable-id="cta"
+     data-lfr-editable-type="link"
+     href="#"
+     aria-label="Monitora e gestisci">
+    MONITORA E GESTISCI
+  </a>
+</article>

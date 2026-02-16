@@ -1,0 +1,14 @@
+[#assign url = themeDisplay.getPortalURL() + "/o/contracts/v1.0/label"]
+[#assign httpUtil = staticUtil["com.liferay.portal.kernel.util.HttpUtil"]]
+
+<span class="ja-id">
+[#attempt]
+  [#assign body = (httpUtil.URLtoString(url))!""]
+
+  <pre style="white-space:pre-wrap">URL: ${(url)!?html}</pre>
+  <pre style="white-space:pre-wrap">Response (text/plain): ${(body)!?html}</pre>
+
+[#recover]
+  <pre style="white-space:pre-wrap">Errore: ${.error?string?html}</pre>
+[/#attempt]
+</span>

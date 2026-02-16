@@ -1,0 +1,33 @@
+{
+  "fieldSets": [
+    {
+      "label": "Impostazioni filtro",
+      "fields": [
+        {
+          "name": "facetPreset",
+          "type": "select",
+          "label": "Quale filtro usare",
+          "defaultValue": "supplystatus",
+          "typeOptions": {
+            "validValues": [
+              { "value": "supplystatus", "label": "Stato fornitura" },
+              { "value": "billstatus", "label": "Stato bolletta" }
+            ]
+          }
+        },
+        {
+          "name": "allLabel",
+          "type": "text",
+          "label": "Etichetta opzione vuota",
+          "defaultValue": "Tutte"
+        },
+        {
+          "name": "keywordParamId",
+          "type": "text",
+          "label": "ID parametro keyword (es: 40076) per Collection Filter",
+          "defaultValue": "40076"
+        }
+      ]
+    }
+  ]
+}
