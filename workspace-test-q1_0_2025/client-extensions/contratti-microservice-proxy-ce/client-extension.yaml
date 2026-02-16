@@ -1,0 +1,17 @@
+assemble:
+  - fromTask: bootJar
+
+my-proxy-oaua:
+  .serviceAddress: localhost:58081
+  .serviceScheme: http
+  name: My Proxy OAuth Application User Agent
+  scopes:
+    - Liferay.Headless.Admin.User.everything
+    - Liferay.Headless.Admin.Workflow.everything
+  type: oAuthApplicationUserAgent
+
+my-supplies-object-entry-manager:
+  name: My Supplies Object Entry Manager
+  oAuth2ApplicationExternalReferenceCode: my-proxy-oaua
+  resourcePath: /object/entry/manager/supplies
+  type: objectEntryManager

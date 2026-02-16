@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: contratti-microservice
+
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=127.0.0.1)(PORT=4141))(CONNECT_DATA=(SID=dbgwww11)(SERVER=DEDICATED)))
+    username: DEDA
+    password: "N8om9oUi8qFj38QQv6YD"
+    hikari:
+      connection-init-sql: "ALTER SESSION SET CURRENT_SCHEMA=CIIP"
+
+server:
+  port: 8085
+
+liferay:
+  baseUrl: http://localhost:8080
+  username: test@liferay.com
+  password: "testtest"
+
+  contratti:
+    path: /o/c/contrattos
+    pageSize: 1000
+
+  bollette:
+    path: /o/c/bollettas
+    relContrattoField: r_contrattoBollette_c_contrattoId
+
+sync:
+  defaultPages: 1
