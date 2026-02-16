@@ -1,0 +1,5 @@
+Bundle-Name: contracts-test
+Bundle-SymbolicName: contracts.test
+Bundle-Version: 1.0.0
+-includeresource: contracts.client.jar=../contracts-client/build/libs/contracts.client-1.0.0.jar;lib:=true
+-provider-policy: ${replacestring;${range;[==,==]};.*,(.*)];$1}

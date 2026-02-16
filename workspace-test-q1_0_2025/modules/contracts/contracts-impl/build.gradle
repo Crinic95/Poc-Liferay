@@ -1,0 +1,7 @@
+dependencies {
+	api project(":modules:contracts:contracts-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+group = "contracts"

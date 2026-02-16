@@ -1,0 +1,6 @@
+Bundle-Name: contracts-api
+Bundle-SymbolicName: contracts.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	contracts.dto.v1_0,\
+	contracts.resource.v1_0

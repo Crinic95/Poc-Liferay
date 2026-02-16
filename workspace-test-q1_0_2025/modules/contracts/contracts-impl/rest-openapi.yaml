@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: "Contracts"
+  version: v1.0
+  description: "Contracts REST API"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+components:
+  schemas:
+    Label:
+      description: Represents a static label.
+      type: object
+      properties:
+        text:
+          description: the label text
+          type: string
+
+paths:
+  /label:
+    get:
+      tags:
+        - Contracts
+      summary: Returns a static label text
+      operationId: getLabel
+      responses:
+        "200":
+          description: OK
+          content:
+            text/plain:
+              schema:
+                type: string

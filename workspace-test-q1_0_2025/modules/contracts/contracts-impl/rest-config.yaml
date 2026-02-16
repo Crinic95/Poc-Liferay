@@ -1,0 +1,9 @@
+apiDir: "../contracts-api/src/main/java"
+apiPackagePath: "contracts"
+application:
+  baseURI: "/contracts"
+  className: "ContractsApplication"
+  name: "Contracts"
+author: "NCLCST95H"
+clientDir: "../contracts-client/src/main/java"
+testDir: "../contracts-test/src/testIntegration/java"
