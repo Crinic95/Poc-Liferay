@@ -1,0 +1,7 @@
+Bundle-Name: panelapp-log
+Bundle-SymbolicName: it.dedagroup.panelapp.log
+Bundle-Version: 1.0.0
+Export-Package: it.dedagroup.panelapp.log.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"
