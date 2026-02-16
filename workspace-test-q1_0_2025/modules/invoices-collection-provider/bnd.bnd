@@ -1,3 +1,5 @@
 Bundle-Name: invoices-collection-provider
 Bundle-SymbolicName: it.dedagroup.invoices.collection.provider
 Bundle-Version: 1.0.0
+Web-ContextPath: /invoices-slider
+-includeresource: META-INF/resources=src/main/resources/META-INF/resources

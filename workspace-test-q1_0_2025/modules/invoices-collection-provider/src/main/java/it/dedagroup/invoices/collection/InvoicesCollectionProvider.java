@@ -36,6 +36,7 @@ import java.util.*;
 public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoice> {
 
     private static final Log _log = LogFactoryUtil.getLog(InvoicesCollectionProvider.class);
+    private volatile int _lastCount = 0;
 
     @Override
     public InfoPage<Invoice> getCollectionInfoPage(CollectionQuery collectionQuery) {
@@ -79,6 +80,8 @@ public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoic
             }
         }
 
+        _lastCount = getCount(userId, type, status);
+
         List<Invoice> invoices;
         try {
             invoices = InvoiceRepository.findByUserTypeStatus(userId, type, status);
@@ -88,6 +91,19 @@ public class InvoicesCollectionProvider implements InfoCollectionProvider<Invoic
         }
 
         return InfoPage.of(invoices);
+    }
+
+    public int getCount(long userId, String type, String status) {
+        try {
+            return InvoiceRepository.countByUserTypeStatus(userId, type, status);
+        } catch (Exception e) {
+            _log.error("Error counting invoices", e);
+            return 0;
+        }
+    }
+
+    public int getActiveCount() {
+        return _lastCount;
     }
 
     @Override

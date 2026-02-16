@@ -124,4 +124,39 @@ public class InvoiceRepository {
         return null;
     }
 
+    public static int countByUserTypeStatus(long userId, String type, String status) throws Exception {
+        StringBuilder sql = new StringBuilder(
+                "SELECT COUNT(*) AS total FROM test_q1_0_2025_db.invoice WHERE userId = ?"
+        );
+
+        if (type != null && !type.isEmpty()) {
+            sql.append(" AND type_ = ?");
+        }
+        if (status != null && !status.isEmpty()) {
+            sql.append(" AND status_ = ?");
+        }
+
+        try (java.sql.Connection con = com.liferay.portal.kernel.dao.jdbc.DataAccess.getConnection();
+             java.sql.PreparedStatement ps = con.prepareStatement(sql.toString())) {
+
+            int i = 1;
+            ps.setLong(i++, userId);
+
+            if (type != null && !type.isEmpty()) {
+                ps.setString(i++, type);
+            }
+            if (status != null && !status.isEmpty()) {
+                ps.setString(i++, status);
+            }
+
+            try (java.sql.ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return rs.getInt("total");
+                }
+            }
+        }
+
+        return 0;
+    }
+
 }
