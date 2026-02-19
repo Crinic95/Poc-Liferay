@@ -1,0 +1,17 @@
+assemble:
+  - from: batch
+    into: batch
+
+hello-world-ticket-batch-ce:
+  name: Hello World Ticket Batch CE
+  type: batch
+  oAuthApplicationHeadlessServer: hello-world-ticket-batch-ce-oahs
+
+hello-world-ticket-batch-ce-oahs:
+  type: oAuthApplicationHeadlessServer
+  name: Hello World Ticket Batch CE OAuth
+  .serviceScheme: http
+  .serviceAddress: localhost:8080
+  scopes:
+    - Liferay.Headless.Batch.Engine.everything
+    - Liferay.Object.Admin.REST.everything

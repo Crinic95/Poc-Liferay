@@ -1,0 +1,39 @@
+{
+  "configuration": {
+    "className": "com.liferay.object.rest.dto.v1_0.ObjectEntry",
+    "parameters": {
+      "containsHeaders": "true",
+      "createStrategy": "UPSERT",
+      "importStrategy": "ON_ERROR_FAIL",
+      "updateStrategy": "UPDATE",
+      "resourcePath": "/o/c/supporttickets"
+    },
+    "taskItemDelegateName": "C_SupportTicket"
+  },
+  "items": [
+    {
+      "externalReferenceCode": "TICKET-0001",
+      "properties": {
+        "ticketTitle": "Login non funziona",
+        "ticketDescription": "L’utente non riesce ad autenticarsi. Errore generico in pagina.",
+        "ticketStatus": "NEW"
+      }
+    },
+    {
+      "externalReferenceCode": "TICKET-0002",
+      "properties": {
+        "ticketTitle": "Errore su pagina di dettaglio",
+        "ticketDescription": "Dopo aver aperto il dettaglio, la pagina resta bianca.",
+        "ticketStatus": "IN_PROGRESS"
+      }
+    },
+    {
+      "externalReferenceCode": "TICKET-0003",
+      "properties": {
+        "ticketTitle": "Richiesta nuova feature",
+        "ticketDescription": "Aggiungere campo priorità e filtro per stato nella lista.",
+        "ticketStatus": "DONE"
+      }
+    }
+  ]
+}
