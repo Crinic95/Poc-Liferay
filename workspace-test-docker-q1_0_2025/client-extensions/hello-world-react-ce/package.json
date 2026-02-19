@@ -1,0 +1,15 @@
+{
+  "name": "hello-world-react-ce",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "esbuild src/index.jsx --bundle --outfile=assets/index.js --format=iife --global-name=HelloWorldReactCE --target=es2019"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.21.5"
+  }
+}

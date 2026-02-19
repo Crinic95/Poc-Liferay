@@ -1,0 +1,13 @@
+assemble:
+  - from: assets
+    into: static
+
+hello-world-user-info-react-ce:
+  name: Hello World User Info React CE
+  type: customElement
+  htmlElementName: hello-world-user-info-react-ce
+  friendlyURLMapping: hello-world-user-info-react
+  portletCategoryName: category.client-extensions
+  urls:
+    - index.js
+  useESM: true

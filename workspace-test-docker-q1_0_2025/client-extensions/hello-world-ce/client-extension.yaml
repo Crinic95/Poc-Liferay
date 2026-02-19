@@ -1,9 +1,5 @@
 assemble:
-  - from: assets/index.js
-    hashify: index.js
-    into: static
-  - from: assets/style.css
-    hashify: style.css
+  - from: assets
     into: static
 
 hello-world-ce:
@@ -14,7 +10,5 @@ hello-world-ce:
   portletCategoryName: category.client-extensions
   instanceable: false
   urls:
-    - index.*.js
-  cssURLs:
-    - style.*.css
+    - index.js
   useESM: false
