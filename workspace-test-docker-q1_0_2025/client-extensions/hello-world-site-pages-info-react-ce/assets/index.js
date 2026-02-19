@@ -23592,24 +23592,24 @@ var require_src = __commonJS({
     init_service();
     function App() {
       const [loading, setLoading] = import_react.default.useState(false);
-      const [user, setData] = import_react.default.useState(null);
+      const [sitePages, setSitePages] = import_react.default.useState(null);
       const [err, setErr] = import_react.default.useState("");
       const onCall = async () => {
         setErr("");
-        setData(null);
+        setSitePages(null);
         setLoading(true);
         try {
-          const data = await getSitePages(20117);
-          setData(data);
+          const sitePages2 = await getSitePages(20117);
+          setSitePages(sitePages2);
         } catch (e) {
           setErr((e == null ? void 0 : e.message) || String(e));
         } finally {
           setLoading(false);
         }
       };
-      return /* @__PURE__ */ import_react.default.createElement("div", { style: { padding: 16, border: "1px solid #ddd", borderRadius: 8 } }, /* @__PURE__ */ import_react.default.createElement("h3", null, "Hello \u201CAPI\u201D"), /* @__PURE__ */ import_react.default.createElement("button", { onClick: onCall, disabled: loading }, loading ? "Chiamo..." : "Chiama API Liferay"), err && /* @__PURE__ */ import_react.default.createElement("p", { style: { color: "crimson", marginTop: 12 } }, err), user && /* @__PURE__ */ import_react.default.createElement("pre", { style: { marginTop: 12, background: "#f6f6f6", padding: 12, overflow: "auto" } }, JSON.stringify(user, null, 2)));
+      return /* @__PURE__ */ import_react.default.createElement("div", { style: { padding: 16, border: "1px solid #ddd", borderRadius: 8 } }, /* @__PURE__ */ import_react.default.createElement("h3", null, "Hello \u201CAPI\u201D"), /* @__PURE__ */ import_react.default.createElement("button", { onClick: onCall, disabled: loading }, loading ? "Chiamo..." : "Chiama API Liferay"), err && /* @__PURE__ */ import_react.default.createElement("p", { style: { color: "crimson", marginTop: 12 } }, err), sitePages && /* @__PURE__ */ import_react.default.createElement("div", { style: { marginTop: 12 } }, sitePages.items.map(({ id, title, friendlyUrlPath }) => /* @__PURE__ */ import_react.default.createElement("div", { key: id }, title, " \u2014 ", friendlyUrlPath))));
     }
-    var HelloWorldUserInfoReactCE = class extends HTMLElement {
+    var HelloWorldSitePagesInfoReactCE = class extends HTMLElement {
       connectedCallback() {
         if (this.__mounted)
           return;
@@ -23633,8 +23633,8 @@ var require_src = __commonJS({
         this.__root = null;
       }
     };
-    if (!customElements.get("hello-world-user-info-react-ce")) {
-      customElements.define("hello-world-user-info-react-ce", HelloWorldUserInfoReactCE);
+    if (!customElements.get("hello-world-site-pages-info-react-ce")) {
+      customElements.define("hello-world-site-pages-info-react-ce", HelloWorldSitePagesInfoReactCE);
     }
   }
 });

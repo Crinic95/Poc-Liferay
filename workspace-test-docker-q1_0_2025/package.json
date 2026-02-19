@@ -14,7 +14,7 @@
     "workspaces": {
         "packages": [
             "client-extensions\\hello-world-react-ce",
-            "client-extensions\\hello-world-user-info-react-ce",
+            "client-extensions\\hello-world-site-pages-info-react-ce",
             "client-extensions\\liferay-sample-commerce-checkout-step",
             "client-extensions\\liferay-sample-custom-element-2",
             "client-extensions\\liferay-sample-custom-element-3",

@@ -12,7 +12,7 @@
             <option value="$PROJECT_DIR$/client-extensions" />
             <option value="$PROJECT_DIR$/client-extensions/hello-world-ce" />
             <option value="$PROJECT_DIR$/client-extensions/hello-world-react-ce" />
-            <option value="$PROJECT_DIR$/client-extensions/hello-world-user-info-react-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/hello-world-site-pages-info-react-ce" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-batch" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-checkout-step" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-payment-integration" />

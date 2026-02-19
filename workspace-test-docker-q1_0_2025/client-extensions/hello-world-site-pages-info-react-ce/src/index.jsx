@@ -4,17 +4,17 @@ import { getSitePages } from "./service";
 
 function App() {
   const [loading, setLoading] = React.useState(false);
-  const [user, setData] = React.useState(null);
+  const [sitePages, setSitePages] = React.useState(null);
   const [err, setErr] = React.useState("");
 
   const onCall = async () => {
     setErr("");
-    setData(null);
+    setSitePages(null);
     setLoading(true);
 
     try {
-      const data = await getSitePages(20117);
-      setData(data);
+      const sitePages = await getSitePages(20117);
+      setSitePages(sitePages);
     } catch (e) {
       setErr(e?.message || String(e));
     } finally {
@@ -32,16 +32,20 @@ function App() {
 
       {err && <p style={{ color: "crimson", marginTop: 12 }}>{err}</p>}
 
-      {user && (
-        <pre style={{ marginTop: 12, background: "#f6f6f6", padding: 12, overflow: "auto" }}>
-          {JSON.stringify(user, null, 2)}
-        </pre>
+      {sitePages && (
+        <div style={{ marginTop: 12 }}>
+          {sitePages.items.map(({ id, title, friendlyUrlPath }) => (
+            <div key={id}>
+              {title} — {friendlyUrlPath}
+            </div>
+          ))}
+        </div>
       )}
     </div>
   );
 }
 
-class HelloWorldUserInfoReactCE extends HTMLElement {
+class HelloWorldSitePagesInfoReactCE extends HTMLElement {
   connectedCallback() {
     if (this.__mounted) return;
     this.__mounted = true;
@@ -65,6 +69,6 @@ class HelloWorldUserInfoReactCE extends HTMLElement {
   }
 }
 
-if (!customElements.get("hello-world-user-info-react-ce")) {
-  customElements.define("hello-world-user-info-react-ce", HelloWorldUserInfoReactCE);
+if (!customElements.get("hello-world-site-pages-info-react-ce")) {
+  customElements.define("hello-world-site-pages-info-react-ce", HelloWorldSitePagesInfoReactCE);
 }

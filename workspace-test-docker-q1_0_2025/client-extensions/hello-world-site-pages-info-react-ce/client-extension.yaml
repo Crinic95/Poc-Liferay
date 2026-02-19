@@ -1,0 +1,13 @@
+assemble:
+  - from: assets
+    into: static
+
+hello-world-site-pages-info-react-ce:
+  name: Hello World Site Pages Info React CE
+  type: customElement
+  htmlElementName: hello-world-site-pages-info-react-ce
+  friendlyURLMapping: hello-world-site-pages-info-react
+  portletCategoryName: category.client-extensions
+  urls:
+    - index.js
+  useESM: true
