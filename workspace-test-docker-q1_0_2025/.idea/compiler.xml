@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="21" />
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-payment-integration" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-payment-integration.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-payment-integration.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-shipping-engine" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-shipping-engine.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-shipping-engine.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-tax-engine" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-tax-engine.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-tax-engine.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-etc-cron" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-etc-cron.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-etc-cron.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-etc-spring-boot" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-etc-spring-boot.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-etc-spring-boot.test" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -10,10 +10,8 @@ public class TaxCodeExtractor {
     public String extractTaxCode(JSONObject myUserAccountJson) {
         if (myUserAccountJson == null) return null;
 
-        // Nel tuo caso customFields è un array
         Object cfObj = myUserAccountJson.opt("customFields");
         if (!(cfObj instanceof JSONArray customFields)) {
-            // fallback: in alcune installazioni può essere un oggetto {taxCode: "..."}
             if (cfObj instanceof JSONObject customFieldsObj) {
                 String v = customFieldsObj.optString("taxCode", null);
                 return (v == null || v.isBlank()) ? null : v.trim();

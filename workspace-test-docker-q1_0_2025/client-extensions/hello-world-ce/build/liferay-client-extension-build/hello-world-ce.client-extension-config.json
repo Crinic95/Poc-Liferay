@@ -1,0 +1,17 @@
+{
+  "com.liferay.client.extension.type.configuration.CETConfiguration~hello-world-ce" : {
+    ":configurator:policy" : "force",
+    "baseURL" : "${portalURL}/o/hello-world-ce",
+    "buildTimestamp" : 1771491491346,
+    "description" : "",
+    "dxp.lxc.liferay.com.virtualInstanceId" : "default",
+    "name" : "Hello World CE",
+    "projectId" : "helloworldce",
+    "projectName" : "hello-world-ce",
+    "properties" : [ ],
+    "sourceCodeURL" : "",
+    "type" : "customElement",
+    "typeSettings" : [ "friendlyURLMapping=hello-world", "instanceable=false", "urls=index.57136778486fd021dc88f4cf9c783f353e55043c.js", "useESM=false", "htmlElementName=hello-world-ce", "cssURLs=style.da39a3ee5e6b4b0d3255bfef95601890afd80709.css", "portletCategoryName=category.client-extensions" ],
+    "webContextPath" : "/hello-world-ce"
+  }
+}

@@ -15,6 +15,7 @@ import org.springframework.lang.Nullable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 
 import java.util.List;
 import java.util.Map;
@@ -55,9 +56,29 @@ public class SuppliesObjectEntryManagerRestController extends BaseRestController
         String supplyAddress = _blankToNull(params.get("supplyAddress"));
 
         String authorization = jwt.getTokenValue();
-        JSONObject myUserAccount = liferayUserAccountClient.getMyUserAccount(authorization);
 
-        String taxCode = taxCodeExtractor.extractTaxCode(myUserAccount);
+        String taxCode = null;
+
+        try {
+            JSONObject myUserAccount = liferayUserAccountClient.getMyUserAccount(authorization);
+            taxCode = taxCodeExtractor.extractTaxCode(myUserAccount);
+        }
+        catch (WebClientResponseException e) {
+            if (e.getStatusCode() == HttpStatus.FORBIDDEN || e.getStatusCode() == HttpStatus.UNAUTHORIZED) {
+                _log.warn("Cannot call my-user-account with current token (" + e.getRawStatusCode() +
+                        "). Falling back to codiceFiscale extracted from filter.");
+            }
+            else {
+                _log.warn("Error calling my-user-account. Falling back to filter extraction.", e);
+            }
+        }
+        catch (Exception e) {
+            _log.warn("Unexpected error resolving tax code from my-user-account. Falling back to filter extraction.", e);
+        }
+
+        if (taxCode == null || taxCode.isBlank()) {
+            taxCode = extractCodiceFiscale(filter);
+        }
 
         if (taxCode == null || taxCode.isBlank()) {
             JSONObject empty = new JSONObject()

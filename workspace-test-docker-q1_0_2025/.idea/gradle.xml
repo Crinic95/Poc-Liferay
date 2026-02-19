@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/client-extensions" />
+            <option value="$PROJECT_DIR$/client-extensions/hello-world-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-batch" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-checkout-step" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-payment-integration" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-shipping-engine" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-tax-engine" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-custom-element-1" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-custom-element-2" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-custom-element-3" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-custom-element-4" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-custom-element-5" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-custom-element-6" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-editor-config-contributor" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-etc-cron" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-etc-frontend" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-etc-node" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-etc-spring-boot" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-fds-cell-renderer" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-fds-filter" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-global-css-1" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-global-css-2" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-global-js-1" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-global-js-2" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-global-js-3" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-iframe-1" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-iframe-2" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-instance-settings" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-js-import-maps-entry" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-site-initializer" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-static-content" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-css-1" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-css-2" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-css-3" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-css-4" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-favicon" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-spritemap-1" />
+            <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-spritemap-2" />
+            <option value="$PROJECT_DIR$/language" />
+            <option value="$PROJECT_DIR$/poshi" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,20 @@
+assemble:
+  - from: assets/index.js
+    hashify: index.js
+    into: static
+  - from: assets/style.css
+    hashify: style.css
+    into: static
+
+hello-world-ce:
+  name: Hello World CE
+  type: customElement
+  htmlElementName: hello-world-ce
+  friendlyURLMapping: hello-world
+  portletCategoryName: category.client-extensions
+  instanceable: false
+  urls:
+    - index.*.js
+  cssURLs:
+    - style.*.css
+  useESM: false
