@@ -23,3 +23,9 @@ clarity-distributor-application-taxid-validation:
   oAuth2ApplicationExternalReferenceCode: clarity-etc-spring-boot-workflow-action-oauth-application-user-agent
   resourcePath: /object/validation/rule/taxid
   type: objectValidationRule
+
+clarity-webhook-workflow-action:
+  name: Clarity Webhook Workflow Action
+  oAuth2ApplicationExternalReferenceCode: clarity-etc-spring-boot-workflow-action-oauth-application-user-agent
+  resourcePath: /workflow/action/webhook
+  type: workflowAction

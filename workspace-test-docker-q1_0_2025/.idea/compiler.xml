@@ -5,6 +5,12 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.5-clarity-distributor-mgmt-action" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.5-clarity-distributor-mgmt-action.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.5-clarity-distributor-mgmt-action.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.6-clarity-etc-spting-boot-workflow-action-application" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.6-clarity-etc-spting-boot-workflow-action-application.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.6-clarity-etc-spting-boot-workflow-action-application.test" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step.main" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step.test" options="-parameters" />

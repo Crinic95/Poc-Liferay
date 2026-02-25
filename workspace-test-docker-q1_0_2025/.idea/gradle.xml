@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/client-extensions/2-hello-world-site-pages-info-react-ce" />
             <option value="$PROJECT_DIR$/client-extensions/3-hello-world-ticket-batch-ce" />
             <option value="$PROJECT_DIR$/client-extensions/4-clarity-distributor-mgmt-batch" />
+            <option value="$PROJECT_DIR$/client-extensions/5-clarity-distributor-mgmt-action" />
+            <option value="$PROJECT_DIR$/client-extensions/6-clarity-etc-spting-boot-workflow-action-application" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-batch" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-checkout-step" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-payment-integration" />
