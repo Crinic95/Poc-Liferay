@@ -1,0 +1,71 @@
+{
+  "configuration": {
+    "className": "com.liferay.object.admin.rest.dto.v1_0.ObjectDefinition",
+    "parameters": {
+      "containsHeaders": "true",
+      "createStrategy": "UPSERT",
+      "importStrategy": "ON_ERROR_FAIL",
+      "updateStrategy": "UPDATE"
+    },
+    "taskItemDelegateName": "DEFAULT"
+  },
+  "items": [
+    {
+      "externalReferenceCode": "5c1847c6-83f6-4fe0-d19a-28de538683c9",
+      "name": "SupportTicket",
+      "label": { "en_US": "Support Ticket" },
+      "pluralLabel": { "en_US": "Support Tickets" },
+      "scope": "company",
+      "active": true,
+      "portlet": true,
+      "restContextPath": "/o/c/supporttickets",
+      "titleObjectFieldName": "id",
+      "enableCategorization": true,
+      "enableComments": false,
+      "enableObjectEntryHistory": false,
+      "panelCategoryKey": "control_panel.object",
+      "objectFolderExternalReferenceCode": "poc-directory",
+      "objectFields": [
+        {
+          "name": "ticketTitle",
+          "label": { "en_US": "Ticket Title" },
+          "type": "String",
+          "businessType": "Text",
+          "DBType": "String",
+          "required": true,
+          "system": false,
+          "indexed": true,
+          "indexedLanguageId": "en_US",
+          "externalReferenceCode": "poc-ticket-title",
+          "objectFieldSettings": []
+        },
+        {
+          "name": "ticketDescription",
+          "label": { "en_US": "Ticket Description" },
+          "type": "String",
+          "businessType": "Text",
+          "DBType": "String",
+          "required": false,
+          "system": false,
+          "indexed": true,
+          "indexedLanguageId": "en_US",
+          "externalReferenceCode": "poc-ticket-description",
+          "objectFieldSettings": []
+        },
+        {
+          "name": "ticketStatus",
+          "label": { "en_US": "Ticket Status" },
+          "type": "String",
+          "businessType": "Text",
+          "DBType": "String",
+          "required": false,
+          "system": false,
+          "indexed": true,
+          "indexedLanguageId": "en_US",
+          "externalReferenceCode": "poc-ticket-status",
+          "objectFieldSettings": []
+        }
+      ]
+    }
+  ]
+}

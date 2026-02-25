@@ -10,10 +10,11 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/client-extensions" />
-            <option value="$PROJECT_DIR$/client-extensions/hello-world-ce" />
-            <option value="$PROJECT_DIR$/client-extensions/hello-world-react-ce" />
-            <option value="$PROJECT_DIR$/client-extensions/hello-world-site-pages-info-react-ce" />
-            <option value="$PROJECT_DIR$/client-extensions/hello-world-ticket-batch-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/0-hello-world-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/1-hello-world-react-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/2-hello-world-site-pages-info-react-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/3-hello-world-ticket-batch-ce" />
+            <option value="$PROJECT_DIR$/client-extensions/4-clarity-distributor-mgmt-batch" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-batch" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-checkout-step" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-payment-integration" />

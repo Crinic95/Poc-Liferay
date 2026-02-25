@@ -1,0 +1,28 @@
+version: "3.9"
+
+services:
+  liferay:
+    image: liferay/dxp:2025.q1.0-lts
+    container_name: liferay74_compose
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./bundles/data:/opt/liferay/data
+      - ./bundles/deploy:/opt/liferay/deploy
+      - ./bundles/osgi:/opt/liferay/osgi
+      - ./bundles/portal-ext.properties:/opt/liferay/portal-ext.properties
+    networks:
+      - lfrnet
+
+  clarity-action:
+    build:
+      context: ./client-extensions/5-clarity-distributor-mgmt-action
+    container_name: clarity-action
+    ports:
+      - "58081:58081"
+    networks:
+      - lfrnet
+
+networks:
+  lfrnet:
+    name: lfrnet

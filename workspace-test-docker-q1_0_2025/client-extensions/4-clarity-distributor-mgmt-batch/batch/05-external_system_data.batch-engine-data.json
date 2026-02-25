@@ -1,0 +1,33 @@
+{
+  "configuration": {
+    "callbackURL": null,
+    "className": "com.liferay.object.rest.dto.v1_0.ObjectEntry",
+    "taskItemDelegateName": "C_DistributorApplication",
+    "fieldNameMappingMap": {
+      "businessName": "businessName",
+      "contactPhone": "businessPhoneNumber",
+      "email": "applicantEmailAddress",
+      "name": "applicantName",
+      "state": "applicationState",
+      "taxId": "businessTaxIDNumber",
+      "website": "businessWebsiteURL"
+    },
+    "parameters": {
+      "containsHeaders": "true",
+      "createStrategy": "UPSERT",
+      "onErrorFail": "false",
+      "updateStrategy": "UPDATE"
+    }
+  },
+  "items": [
+    {
+      "businessName": "Oculus Distributors Inc.",
+      "contactPhone": "555-123-4567",
+      "email": "jordan.reeves@oculusdistributors.com",
+      "name": "Jordan Reeves",
+      "state": "open",
+      "taxId": "1011121314",
+      "website": "https://www.oculusdistributors.com"
+    }
+  ]
+}
