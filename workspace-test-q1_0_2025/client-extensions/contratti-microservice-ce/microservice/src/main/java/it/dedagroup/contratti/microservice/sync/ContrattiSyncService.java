@@ -1,6 +1,8 @@
 package it.dedagroup.contratti.microservice.sync;
 
+import it.dedagroup.contratti.microservice.liferay.LiferayAccountClient;
 import it.dedagroup.contratti.microservice.liferay.LiferayContrattoClient;
+import it.dedagroup.contratti.microservice.liferay.LiferayUserClient;
 import it.dedagroup.contratti.microservice.oracle.OracleContrattiRepository;
 import it.dedagroup.contratti.microservice.oracle.dto.OracleContrattoRow;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,20 +17,47 @@ public class ContrattiSyncService {
 
     private final OracleContrattiRepository oracleRepo;
     private final LiferayContrattoClient liferayClient;
+    private final LiferayUserClient userClient;
+    private final LiferayAccountClient accountClient;
+    private final LettureSyncService lettureSyncService;
     private final int pageSize;
 
-    public ContrattiSyncService(OracleContrattiRepository oracleRepo,
-                                LiferayContrattoClient liferayClient,
-                                @Value("${liferay.contratti.pageSize}") int pageSize) {
+    // ATTENZIONE: questo deve combaciare col nome field relationship del tuo Object "Contratto"
+    private static final String REL_ACCOUNT_FIELD = "r_relatedAccount_accountEntryId";
+
+    public ContrattiSyncService(
+            OracleContrattiRepository oracleRepo,
+            LiferayContrattoClient liferayClient,
+            LiferayUserClient userClient,
+            LiferayAccountClient accountClient,
+            LettureSyncService lettureSyncService,
+            @Value("${liferay.contratti.pageSize}") int pageSize
+    ) {
         this.oracleRepo = oracleRepo;
         this.liferayClient = liferayClient;
+        this.userClient = userClient;
+        this.accountClient = accountClient;
+        this.lettureSyncService = lettureSyncService;
         this.pageSize = pageSize;
     }
 
     public int syncTestByCodiceFiscale(String cf, int limit) {
         List<OracleContrattoRow> rows = oracleRepo.fetchByCodiceFiscaleWithBollettaCounts(cf, limit);
 
+        Long accountId = accountClient.findOrCreateAccount(cf);
+        if (accountId == null) {
+            throw new IllegalStateException("AccountId null per cf=" + cf);
+        }
+
+        // assegna TUTTI gli utenti che hanno taxCode=cf all'account (via email, come stai facendo tu)
+        List<String> emails = userClient.findUserEmailsByTaxCode(cf);
+        for (String email : emails) {
+            if (email == null || email.isBlank()) continue;
+            accountClient.assignUserToAccountIfMissing(accountId, email);
+        }
+
         int processed = 0;
+
         for (OracleContrattoRow row : rows) {
             String externalId = _buildExternalId(row.annoContratto(), row.numeroContratto());
 
@@ -66,7 +95,28 @@ public class ContrattiSyncService {
             if (row.bolletteTotali() != null) payload.put("bolletteTotali", row.bolletteTotali());
             if (row.bolletteDaPagare() != null) payload.put("bolletteDaPagare", row.bolletteDaPagare());
 
+            // relazione account sul Contratto
+            payload.put(REL_ACCOUNT_FIELD, accountId);
+
             liferayClient.upsertByERC(payload, externalId);
+
+            // sync letture per questo contratto
+            Long contrattoId = liferayClient.findIdByERC(externalId);
+            if (contrattoId == null) {
+                // se vuoi essere più “strict”, fai throw; così invece non blocchi tutta la sync
+                System.out.println("SKIP letture: contrattoId null per ERC=" + externalId);
+                processed++;
+                continue;
+            }
+
+            lettureSyncService.syncForContratto(
+                    row.annoContratto(),
+                    row.numeroContratto(),
+                    contrattoId,
+                    accountId,
+                    30
+            );
+
             processed++;
         }
 

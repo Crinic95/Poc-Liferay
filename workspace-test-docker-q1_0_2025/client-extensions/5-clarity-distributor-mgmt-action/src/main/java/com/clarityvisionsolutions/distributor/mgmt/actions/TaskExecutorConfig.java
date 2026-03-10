@@ -16,23 +16,15 @@ public class TaskExecutorConfig {
 	@Bean
 	public TaskExecutor taskExecutor() {
 
-		// create a thread pool for the task executor
-
 		ThreadPoolTaskExecutor threadPoolTaskExecutor =
 			new ThreadPoolTaskExecutor();
-
-		// initialize to some reasonable values
 
 		threadPoolTaskExecutor.setCorePoolSize(0);
 		threadPoolTaskExecutor.setMaxPoolSize(10);
 		threadPoolTaskExecutor.setQueueCapacity(100);
 		threadPoolTaskExecutor.setThreadNamePrefix("CreateAccountTaskExecutor-");
 
-		// initialize the task executor
-
 		threadPoolTaskExecutor.initialize();
-
-		// return the task executor
 
 		return threadPoolTaskExecutor;
 	}

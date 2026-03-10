@@ -15,7 +15,7 @@ server:
 
 liferay:
   baseUrl: http://localhost:8080
-  username: test@liferay.com
+  username: test
   password: "testtest"
 
   contratti:
@@ -25,6 +25,10 @@ liferay:
   bollette:
     path: /o/c/bollettas
     relContrattoField: r_contrattoBollette_c_contrattoId
+
+  letture:
+    path: /o/c/letturas
+    pageSize: 1000
 
 sync:
   defaultPages: 1

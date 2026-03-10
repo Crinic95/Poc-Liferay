@@ -40,16 +40,8 @@ public class ObjectActionAccountRestController extends BaseRestController {
 
         log(jwt, _log, json);
 
-        // Create the request instance
-
         AccountCreationRequest request = new AccountCreationRequest(json, jwt);
-
-        // Enqueue the request
-
         _queueManager.enqueue(request);
-
-        // Return a success response
-
         return new ResponseEntity<>(json, HttpStatus.OK);
     }
 

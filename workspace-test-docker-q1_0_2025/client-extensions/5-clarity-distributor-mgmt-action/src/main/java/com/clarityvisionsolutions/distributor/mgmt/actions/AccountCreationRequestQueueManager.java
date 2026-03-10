@@ -25,7 +25,7 @@ public class AccountCreationRequestQueueManager {
 
 		try {
 			while (isEmpty()) {
-				_notEmpty.await(); // Wait until notified
+				_notEmpty.await();
 			}
 		}
 		finally {
@@ -40,9 +40,6 @@ public class AccountCreationRequestQueueManager {
 	 * @throws InterruptedException if the thread is interrupted while waiting for an account creation request
 	 */
 	public AccountCreationRequest dequeue() throws InterruptedException {
-
-		// Remove the request from the queue
-
 		return _queue.take();
 	}
 
@@ -52,13 +49,7 @@ public class AccountCreationRequestQueueManager {
 	 * @param accountCreationRequest the account creation request
 	 */
 	public void enqueue(AccountCreationRequest accountCreationRequest) {
-
-		// Add the request to the queue
-
 		_queue.add(accountCreationRequest);
-
-		// signal the executor that work is available
-
 		_signalExecutor();
 	}
 
@@ -78,7 +69,7 @@ public class AccountCreationRequestQueueManager {
 		_lock.lock();
 
 		try {
-			_notEmpty.signal(); // Notify the executor that work is available
+			_notEmpty.signal();
 		}
 		finally {
 			_lock.unlock();

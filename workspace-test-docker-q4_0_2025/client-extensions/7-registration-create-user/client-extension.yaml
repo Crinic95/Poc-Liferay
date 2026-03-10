@@ -1,0 +1,29 @@
+assemble:
+  - fromTask: bootJar
+
+registration-create-user-oaua:
+  .serviceAddress: registration-create-user-ms:58085
+  .serviceScheme: http
+  name: Registration Create User - User Agent
+  scopes:
+    - c_registrationrequest.everything
+    - Liferay.Headless.Admin.User.everything
+  type: oAuthApplicationUserAgent
+
+registration-create-user-oahs:
+  .serviceAddress: registration-create-user-ms:58085
+  .serviceScheme: http
+  name: Registration Create User - Headless Server
+  scopes:
+    - c_registrationrequest.everything
+    - Liferay.Headless.Admin.User.everything
+  type: oAuthApplicationHeadlessServer
+  userAccountScreenName: test
+
+registration-create-user:
+  type: objectAction
+  name: Registration Create User
+  oAuth2ApplicationExternalReferenceCode: registration-create-user-oaua
+  resourcePath: /registration/create-user
+  allowedObjectDefinitionNames:
+    - C_RegistrationRequest
