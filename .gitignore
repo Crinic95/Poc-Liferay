@@ -68,3 +68,6 @@ test-results/
 
 # optional: keep only if you do NOT want repo metadata/workflows
 # **/.github/
+
+# other
+**camunda*
