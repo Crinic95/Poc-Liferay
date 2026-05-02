@@ -25,3 +25,6 @@
 /plugins-sdk/dist
 /plugins-sdk/lib
 test-results
+**/bundles/
+**/bundles-bkp_docker-no-compose/
+**/bundles-no-doker/

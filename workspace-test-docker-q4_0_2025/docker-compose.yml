@@ -3,7 +3,7 @@ version: "3.9"
 services:
   mysql:
     image: ${MYSQL_IMAGE}
-    container_name: lfr74_q4_mysql
+    container_name: lfr_local_mysql
     command:
       - --lower_case_table_names=1
       - --character-set-server=utf8mb4
@@ -30,7 +30,7 @@ services:
 
   liferay:
     image: ${LIFERAY_IMAGE}
-    container_name: lfr74_q4_local
+    container_name: lfr_local
     depends_on:
       mysql:
         condition: service_healthy
