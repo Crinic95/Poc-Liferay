@@ -1,0 +1,8 @@
+assemble:
+  - from: build/static
+    into: static
+
+dataset-content-type-fds-filter:
+  name: Content Type FDS Filter
+  type: fdsFilter
+  url: index.*.js

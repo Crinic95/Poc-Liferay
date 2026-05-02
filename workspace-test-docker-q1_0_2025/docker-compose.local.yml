@@ -1,0 +1,47 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: liferay74_db
+    command:
+      - --lower_case_table_names=1
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "3308:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - lfrnet
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u${MYSQL_USER}", "-p${MYSQL_PASSWORD}"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  liferay:
+    image: liferay/dxp:2025.q1.0-lts
+    container_name: liferay74_local
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./bundles/deploy:/opt/liferay/deploy
+      - ./bundles/osgi/client-extensions:/opt/liferay/osgi/client-extensions
+      - ./configs/local/portal-ext.properties:/opt/liferay/portal-ext.properties
+    networks:
+      - lfrnet
+
+networks:
+  lfrnet:
+    name: lfrnet
+
+volumes:
+  db_data:
+  liferay_data:

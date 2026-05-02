@@ -1,0 +1,8 @@
+assemble:
+  -   from: build/static
+      into: static
+
+dataset-notizia-comunicato-fds-cell-renderer:
+  name: NotiziaComunicato FDS Cell Renderer
+  type: fdsCellRenderer
+  url: index.*.js

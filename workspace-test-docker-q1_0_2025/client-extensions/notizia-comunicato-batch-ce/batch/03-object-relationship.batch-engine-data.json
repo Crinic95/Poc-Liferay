@@ -1,0 +1,27 @@
+{
+  "configuration": {
+    "className": "com.liferay.object.admin.rest.dto.v1_0.ObjectRelationship",
+    "parameters": {
+      "containsHeaders": "true",
+      "createStrategy": "UPSERT",
+      "importStrategy": "ON_ERROR_FAIL",
+      "updateStrategy": "UPDATE"
+    },
+    "taskItemDelegateName": "DEFAULT"
+  },
+  "items": [
+    {
+      "deletionType": "prevent",
+      "edge": false,
+      "externalReferenceCode": "REL_NOTIZIA_COMUNICATO_TO_ASSET",
+      "label": {
+        "en_US": "Assets"
+      },
+      "name": "assets",
+      "objectDefinitionExternalReferenceCode1": "OBJ_NOTIZIA_COMUNICATO",
+      "objectDefinitionExternalReferenceCode2": "OBJ_NOTIZIA_COMUNICATO_ASSET",
+      "objectDefinitionName2": "NotiziaComunicatoAsset",
+      "type": "oneToMany"
+    }
+  ]
+}

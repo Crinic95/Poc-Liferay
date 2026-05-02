@@ -1,0 +1,1 @@
+Filtro numerico generico per dataset liferay e che è possibile agganciare ad un campo numerico. (es. lo avevamo utilizzato come verifica su un campo object di tipo "Decimal")

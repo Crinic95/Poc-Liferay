@@ -24,3 +24,5 @@
 /plugins-sdk/dist
 /plugins-sdk/lib
 test-results
+**/bundles/
+**/bundles-new/

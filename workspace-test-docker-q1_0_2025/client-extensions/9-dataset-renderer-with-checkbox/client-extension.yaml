@@ -1,0 +1,8 @@
+assemble:
+  -   from: build/static
+      into: static
+
+dataset-fds-cell-renderer:
+  name: FDS Cell Renderer
+  type: fdsCellRenderer
+  url: index.*.js

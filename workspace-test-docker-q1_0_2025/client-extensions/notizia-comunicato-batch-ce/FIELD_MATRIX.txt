@@ -1,0 +1,33 @@
+OBJECT: NotiziaComunicato
+- externalReferenceCode : Text / unique
+- sourceUrl             : Long Text
+- contentType           : Text
+- cardTitle             : Long Text
+- cardSummary           : Long Text
+- cardDate              : Text
+- detailTitle           : Long Text
+- detailSummary         : Long Text
+- detailDate            : Text
+- detailBody            : Long Text
+- cardImageDocumentId   : Long Integer / Text (dipende dalla strategia import)
+- cardImageUrl          : Long Text
+- detailMainImageDocumentId : Long Integer / Text
+- detailMainImageUrl    : Long Text
+
+OBJECT: NotiziaComunicatoAsset
+- externalReferenceCode : Text / unique
+- parentContentERC      : Text
+- assetRole             : Text
+- assetOrder            : Integer
+- sourceAssetUrl        : Long Text
+- documentId            : Long Integer / Text
+- contentUrl            : Long Text
+
+RELAZIONE:
+- NotiziaComunicato 1:N NotiziaComunicatoAsset
+
+NOTE:
+- Nel primo object restano solo contenuto + media singoli
+- Nel secondo object restano solo asset ripetibili:
+  - gallery_image
+  - attachment_document

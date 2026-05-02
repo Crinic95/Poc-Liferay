@@ -1,0 +1,1 @@
+Filtro di stringa generica per dataset liferay ma applicato a 2 tipi di options notizia/comunicato, che andranno modificate per la propria esigenza.

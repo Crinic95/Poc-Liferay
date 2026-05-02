@@ -1,0 +1,17 @@
+assemble:
+  - from: batch
+    into: batch
+
+notizia-comunicato-batch-ce:
+  name: Notizia Comunicato Model Batch
+  oAuthApplicationHeadlessServer: notizia-comunicato-model-batch-oauth
+  type: batch
+
+notizia-comunicato-batch-oauth:
+  .serviceAddress: localhost:8080
+  .serviceScheme: http
+  name: Notizia Comunicato Model Batch OAuth
+  scopes:
+    - Liferay.Headless.Batch.Engine.everything
+    - Liferay.Object.Admin.REST.everything
+  type: oAuthApplicationHeadlessServer

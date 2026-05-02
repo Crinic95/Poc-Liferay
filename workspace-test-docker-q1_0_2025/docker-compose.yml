@@ -1,28 +1,31 @@
 version: "3.9"
 
 services:
-  liferay:
-    image: liferay/dxp:2025.q1.0-lts
-    container_name: liferay74_compose
+  db:
+    image: mysql:8.0
+    container_name: liferay74_db
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     ports:
-      - "8080:8080"
+      - "3308:3306"
     volumes:
-      - ./bundles/data:/opt/liferay/data
-      - ./bundles/deploy:/opt/liferay/deploy
-      - ./bundles/osgi:/opt/liferay/osgi
-      - ./bundles/portal-ext.properties:/opt/liferay/portal-ext.properties
+      - db_data:/var/lib/mysql
     networks:
       - lfrnet
-
-  clarity-action:
-    build:
-      context: ./client-extensions/5-clarity-distributor-mgmt-action
-    container_name: clarity-action
-    ports:
-      - "58081:58081"
-    networks:
-      - lfrnet
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u${MYSQL_USER}", "-p${MYSQL_PASSWORD}"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
 
 networks:
   lfrnet:
     name: lfrnet
+
+volumes:
+  db_data:
+  liferay_data:
+  liferay_logs:

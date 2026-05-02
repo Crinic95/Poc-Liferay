@@ -1,0 +1,21 @@
+{
+  "name": "@clarity/fds-renderer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "FDS Cell Renderer",
+  "dependencies": {
+    "@liferay/js-api": "0.6.2"
+  },
+  "devDependencies": {
+    "ts-loader": "9.5.1",
+    "typescript": "^5.0.4",
+    "webpack": "5.90.1",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "4.15.1"
+  },
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack serve",
+    "watch": "tsc --watch"
+  }
+}

@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  liferay:
+    image: ${LIFERAY_IMAGE:-liferay-custom:local}
+    container_name: liferay74_img
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    environment:
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_URL: ${LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_URL}
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_USERNAME: ${LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_USERNAME}
+      LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD: ${LIFERAY_JDBC_PERIOD_DEFAULT_PERIOD_PASSWORD}
+    volumes:
+      - liferay_data:/opt/liferay/data
+      - liferay_logs:/opt/liferay/logs
+    networks:
+      - lfrnet

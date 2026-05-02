@@ -1,0 +1,338 @@
+{
+  "configuration": {
+    "className": "com.liferay.object.admin.rest.dto.v1_0.ObjectDefinition",
+    "parameters": {
+      "containsHeaders": "true",
+      "createStrategy": "UPSERT",
+      "importStrategy": "ON_ERROR_FAIL",
+      "updateStrategy": "UPDATE"
+    },
+    "taskItemDelegateName": "DEFAULT"
+  },
+  "items": [
+    {
+      "active": true,
+      "defaultLanguageId": "en_US",
+      "enableCategorization": false,
+      "enableIndexSearch": true,
+      "enableObjectEntryDraft": false,
+      "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO",
+      "label": {
+        "en_US": "Notizia Comunicato"
+      },
+      "modifiable": true,
+      "name": "NotiziaComunicato",
+      "objectActions": [],
+      "objectFolderExternalReferenceCode": "ANSFISA_OBJECT_FOLDER",
+      "objectFields": [
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_sourceUrl",
+          "indexed": false,
+          "label": {
+            "en_US": "Source URL"
+          },
+          "name": "sourceUrl",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Text",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_contentType",
+          "indexed": true,
+          "indexedLanguageId": "en_US",
+          "label": {
+            "en_US": "Content Type"
+          },
+          "name": "contentType",
+          "readOnly": "false",
+          "required": true,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_cardTitle",
+          "indexed": false,
+          "label": {
+            "en_US": "Card Title"
+          },
+          "name": "cardTitle",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_cardSummary",
+          "indexed": false,
+          "label": {
+            "en_US": "Card Summary"
+          },
+          "name": "cardSummary",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Text",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_cardDate",
+          "indexed": false,
+          "label": {
+            "en_US": "Card Date"
+          },
+          "name": "cardDate",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_detailTitle",
+          "indexed": false,
+          "label": {
+            "en_US": "Detail Title"
+          },
+          "name": "detailTitle",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_detailSummary",
+          "indexed": false,
+          "label": {
+            "en_US": "Detail Summary"
+          },
+          "name": "detailSummary",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Text",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_detailDate",
+          "indexed": false,
+          "label": {
+            "en_US": "Detail Date"
+          },
+          "name": "detailDate",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_detailBody",
+          "indexed": false,
+          "label": {
+            "en_US": "Detail Body"
+          },
+          "name": "detailBody",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Attachment",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_cardImage",
+          "indexed": false,
+          "label": {
+            "en_US": "Card Image"
+          },
+          "name": "cardImage",
+          "objectFieldSettings": [
+            {
+              "name": "acceptedFileExtensions",
+              "value": "jpg,jpeg,png,gif,webp,jfif"
+            },
+            {
+              "name": "fileSource",
+              "value": "documentsAndMedia"
+            },
+            {
+              "name": "maximumFileSize",
+              "value": "100"
+            }
+          ],
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "system": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Attachment",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_detailMainImage",
+          "indexed": false,
+          "label": {
+            "en_US": "Detail Main Image"
+          },
+          "name": "detailMainImage",
+          "objectFieldSettings": [
+            {
+              "name": "acceptedFileExtensions",
+              "value": "jpg,jpeg,png,gif,webp,jfif"
+            },
+            {
+              "name": "fileSource",
+              "value": "documentsAndMedia"
+            },
+            {
+              "name": "maximumFileSize",
+              "value": "100"
+            }
+          ],
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "system": false,
+          "type": "String"
+        }
+      ],
+      "panelCategoryKey": "site_administration.content",
+      "pluralLabel": {
+        "en_US": "Notizia Comunicati"
+      },
+      "portlet": true,
+      "scope": "site",
+      "status": {
+        "code": 0
+      }
+    },
+    {
+      "active": true,
+      "defaultLanguageId": "en_US",
+      "enableCategorization": false,
+      "enableIndexSearch": true,
+      "enableObjectEntryDraft": false,
+      "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_ASSET",
+      "label": {
+        "en_US": "Notizia Comunicato Asset"
+      },
+      "modifiable": true,
+      "name": "NotiziaComunicatoAsset",
+      "objectActions": [],
+      "objectFolderExternalReferenceCode": "ANSFISA_OBJECT_FOLDER",
+      "objectFields": [
+        {
+          "DBType": "String",
+          "businessType": "Text",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_ASSET_parentContentERC",
+          "indexed": true,
+          "indexedLanguageId": "en_US",
+          "label": {
+            "en_US": "Parent Content ERC"
+          },
+          "name": "parentContentERC",
+          "readOnly": "false",
+          "required": true,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Text",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_ASSET_assetRole",
+          "indexed": true,
+          "indexedLanguageId": "en_US",
+          "label": {
+            "en_US": "Asset Role"
+          },
+          "name": "assetRole",
+          "readOnly": "false",
+          "required": true,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "Integer",
+          "businessType": "Integer",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_ASSET_assetOrder",
+          "indexed": false,
+          "label": {
+            "en_US": "Asset Order"
+          },
+          "name": "assetOrder",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "Integer"
+        },
+        {
+          "DBType": "String",
+          "businessType": "LongText",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_ASSET_sourceAssetUrl",
+          "indexed": false,
+          "label": {
+            "en_US": "Source Asset URL"
+          },
+          "name": "sourceAssetUrl",
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "type": "String"
+        },
+        {
+          "DBType": "String",
+          "businessType": "Attachment",
+          "externalReferenceCode": "OBJ_NOTIZIA_COMUNICATO_ASSET_assetFile",
+          "indexed": false,
+          "label": {
+            "en_US": "Asset File"
+          },
+          "name": "assetFile",
+          "objectFieldSettings": [
+            {
+              "name": "acceptedFileExtensions",
+              "value": "jpg,jpeg,png,gif,webp,jfif,pdf,doc,docx,xls,xlsx,ppt,pptx"
+            },
+            {
+              "name": "fileSource",
+              "value": "documentsAndMedia"
+            },
+            {
+              "name": "maximumFileSize",
+              "value": "100"
+            }
+          ],
+          "readOnly": "false",
+          "required": false,
+          "state": false,
+          "system": false,
+          "type": "String"
+        }
+      ],
+      "panelCategoryKey": "site_administration.content",
+      "pluralLabel": {
+        "en_US": "Notizia Comunicato Assets"
+      },
+      "portlet": true,
+      "scope": "site",
+      "status": {
+        "code": 0
+      }
+    }
+  ]
+}

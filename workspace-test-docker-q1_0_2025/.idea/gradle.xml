@@ -17,6 +17,10 @@
             <option value="$PROJECT_DIR$/client-extensions/4-clarity-distributor-mgmt-batch" />
             <option value="$PROJECT_DIR$/client-extensions/5-clarity-distributor-mgmt-action" />
             <option value="$PROJECT_DIR$/client-extensions/6-clarity-etc-spting-boot-workflow-action-application" />
+            <option value="$PROJECT_DIR$/client-extensions/7-dataset-filter-content-type" />
+            <option value="$PROJECT_DIR$/client-extensions/7-dataset-filter-number" />
+            <option value="$PROJECT_DIR$/client-extensions/8-dataset-renderer" />
+            <option value="$PROJECT_DIR$/client-extensions/9-dataset-renderer-with-checkbox" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-batch" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-checkout-step" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-commerce-payment-integration" />
@@ -53,6 +57,7 @@
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-favicon" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-spritemap-1" />
             <option value="$PROJECT_DIR$/client-extensions/liferay-sample-theme-spritemap-2" />
+            <option value="$PROJECT_DIR$/client-extensions/notizia-comunicato-batch-ce" />
             <option value="$PROJECT_DIR$/language" />
             <option value="$PROJECT_DIR$/poshi" />
           </set>

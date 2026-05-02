@@ -11,6 +11,11 @@
       <module name="workspace-test-docker-q1_0_2025.client-extensions.6-clarity-etc-spting-boot-workflow-action-application" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.6-clarity-etc-spting-boot-workflow-action-application.main" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.6-clarity-etc-spting-boot-workflow-action-application.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.7-dataset.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.7-dataset.test" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.7-registration-create-user" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.7-registration-create-user.main" options="-parameters" />
+      <module name="workspace-test-docker-q1_0_2025.client-extensions.7-registration-create-user.test" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step.main" options="-parameters" />
       <module name="workspace-test-docker-q1_0_2025.client-extensions.liferay-sample-commerce-checkout-step.test" options="-parameters" />

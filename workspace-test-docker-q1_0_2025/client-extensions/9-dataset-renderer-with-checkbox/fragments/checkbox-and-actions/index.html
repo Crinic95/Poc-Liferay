@@ -1,0 +1,28 @@
+<div class="bulk-actions-card">
+	<div class="bulk-actions-left">
+		<label class="bulk-toggle">
+			<input type="checkbox" id="toggleAllBulk" />
+			<span>Seleziona tutte</span>
+		</label>
+
+		<span id="bulkSelectionCount" class="bulk-selection-count">
+			0 selezionati
+		</span>
+	</div>
+
+	<div class="bulk-actions-right">
+		<label class="bulk-action-label" for="bulkActionSelect">
+			Azione
+		</label>
+
+		<select id="bulkActionSelect" class="bulk-action-select">
+			<option value="">Seleziona almeno un record</option>
+		</select>
+
+		<button type="button" id="runBulkAction" class="btn btn-primary btn-sm" disabled>
+			Applica
+		</button>
+	</div>
+</div>
+
+<div id="bulkActionFeedback" class="bulk-feedback" hidden></div>
