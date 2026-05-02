@@ -26,8 +26,9 @@ test-results/
 # liferay / generated runtime
 **/bundles/
 **/bundles-new/
-**/bundles-no-doker/
-**/bundles-new_docker-no-compose/
+**/bundles-no-docker/
+**/bundles-bkg_docker-no-compose/
+**/bundles-bkp_no-compose/
 **/bundles-docker-compose_poc-trasferte/
 **/elasticsearch-sidecar/
 **/data/
@@ -44,3 +45,25 @@ test-results/
 **/*.gz
 **/*.7z
 **/*.log
+
+# local tool folders
+**/.claude/
+**/.cursor/
+**/.gemini/
+**/.windsurf/
+**/.workspace-rules/
+
+# local env files
+**/.env
+**/.env.*
+**/*.bak
+**/*.tmp
+
+# local backup folders
+**/backups/
+
+# generated runtime folders seen in this workspace
+**/osgi/state/
+
+# optional: keep only if you do NOT want repo metadata/workflows
+# **/.github/
