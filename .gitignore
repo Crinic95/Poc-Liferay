@@ -1,1 +1,46 @@
-/workspace-test-74GA132
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# generic
+**/*.iml
+**/.ivy
+**/.classpath
+**/.project
+**/.sass-cache
+**/.settings
+**/bin/
+**/build/
+**/build_gradle/
+**/dist/
+**/node_modules/
+**/node_modules_cache/
+**/test-coverage/
+**/tmp/
+**/.web_bundle_build/
+.gradle/
+test-results/
+
+# liferay / generated runtime
+**/bundles/
+**/bundles-new/
+**/bundles-no-doker/
+**/bundles-new_docker-no-compose/
+**/bundles-docker-compose_poc-trasferte/
+**/elasticsearch-sidecar/
+**/data/
+**/logs/
+
+# archives / binaries
+**/*.zip
+**/*.exe
+**/*.asar
+**/*.so
+**/*.dll
+**/*.bin
+**/*.tar
+**/*.gz
+**/*.7z
+**/*.log
