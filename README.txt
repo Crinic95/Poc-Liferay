@@ -1,0 +1,1 @@
+workspace-liferay-docker-local -> workspace con ambiente docker compose updatabile a versioni minor e major (ATTUALE q1.6lts 2026)
