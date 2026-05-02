@@ -1,0 +1,8 @@
+services:
+  liferay:
+    volumes:
+      - ./bundles/data:/opt/liferay/data
+      - ./bundles/deploy:/opt/liferay/deploy
+      - ./bundles/routes:/opt/liferay/routes
+      - ./bundles/portal-ext.properties:/opt/liferay/portal-ext.properties
+      - ./bundles/osgi/client-extensions:/opt/liferay/osgi/client-extensions

@@ -1,0 +1,72 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: ${MYSQL_IMAGE}
+    container_name: lfr74_q1_2026_mysql
+    command:
+      - --lower_case_table_names=1
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "${MYSQL_HOST_PORT}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init:/docker-entrypoint-initdb.d
+      - ./docker/mysql/conf.d:/etc/mysql/conf.d
+    networks:
+      - lfrnet
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u${MYSQL_USER} -p${MYSQL_PASSWORD} --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  liferay:
+    image: ${LIFERAY_IMAGE}
+    container_name: lfr74_q1_2026_local
+    depends_on:
+      mysql:
+        condition: service_healthy
+    env_file:
+      - ./env/local.env
+    ports:
+      - "${LIFERAY_HOST_PORT}:8080"
+      - "${LIFERAY_DEBUG_PORT}:11311"
+    networks:
+      - lfrnet
+
+  registration-create-user-ms:
+    build:
+      context: ./client-extensions/7-registration-create-user
+      dockerfile: Dockerfile
+    container_name: registration_create_user_ms-q1_2026
+    depends_on:
+      liferay:
+        condition: service_health
+    environment:
+      LIFERAY_BASE_URL: http://liferay:8080
+      LIFERAY_ROUTES_CLIENT_EXTENSION: /opt/liferay/routes
+      LIFERAY_ROUTES_DXP: /opt/liferay/osgi/client-extensions
+    ports:
+      - "58085:58085"
+    volumes:
+      - ./bundles/routes:/opt/liferay/routes:ro
+      - ./bundles/osgi/client-extensions:/opt/liferay/osgi/client-extensions:ro
+    networks:
+      - lfrnet
+
+networks:
+  lfrnet:
+    name: lfrnet
+
+volumes:
+  mysql_data:
+  liferay_data:
+  liferay_logs:
